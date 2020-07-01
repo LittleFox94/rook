@@ -299,8 +299,6 @@ func (c *Cluster) makeDeployment(osdProps osdProperties, osd OSDInfo, provisionC
 			"--osd-data", osd.DataPath,
 			"--osd-uuid", osd.UUID,
 			"--osd-objectstore", storeType,
-			"--osd-max-object-name-len", "256",
-			"--osd-max-object-namespace-len", "64",
 			"--crush-location", fmt.Sprintf("root=default host=%s", osdProps.crushHostname),
 			// Set '--setuser-match-path' so that existing directory owned by root won't affect the daemon startup.
 			// For existing data store owned by root, the daemon will continue to run as root
@@ -364,8 +362,6 @@ func (c *Cluster) makeDeployment(osdProps osdProperties, osd OSDInfo, provisionC
 			"--osd-data", osd.DataPath,
 			"--osd-uuid", osd.UUID,
 			"--osd-objectstore", storeType,
-			"--osd-max-object-name-len", "256",
-			"--osd-max-object-namespace-len", "64",
 			"--crush-location", fmt.Sprintf("root=default host=%s", osdProps.crushHostname),
 			"--setuser-match-path", osd.DataPath,
 		)
